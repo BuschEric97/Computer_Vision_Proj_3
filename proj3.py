@@ -25,10 +25,14 @@ cifar10 = keras.datasets.cifar10
 class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
 
 # Create and compile the training model
-model = keras.models.Sequential([keras.layers.Conv2D(8,(3,3),padding='same',activation=tf.nn.relu,input_shape=(32,32,3)),
+model = keras.models.Sequential([keras.layers.Conv2D(8,(5,5),padding='same',activation=tf.nn.relu,input_shape=(32,32,3)),
+                          keras.layers.Conv2D(8,(3,3),padding='same',activation=tf.nn.relu,input_shape=(32,32,3)),
+                          keras.layers.MaxPooling2D(2,2),
+                          keras.layers.Conv2D(16,(5,5),padding='same',activation=tf.nn.relu,input_shape=(32,32,3)),
                           keras.layers.MaxPooling2D(2,2),
                           keras.layers.Flatten(),
                           keras.layers.Dense(512, activation=tf.nn.relu),
+                          keras.layers.Dense(256, activation=tf.nn.relu),
                           keras.layers.Dense(10, activation=tf.nn.softmax)])
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
