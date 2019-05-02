@@ -1,4 +1,4 @@
-# OS_Concepts_Proj_3
+# Computer_Vision_Proj_3
 
 Convolutional neural network is a powerful learning mechanism that was applied successfully to many computer vision tasks. In this project you are asked to run experiments using tensorflow.
 The goal is to train a CNN to recognize images from the classical “cfar10” dataset. This dataset consists of
