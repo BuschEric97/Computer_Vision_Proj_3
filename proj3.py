@@ -28,7 +28,7 @@ model = keras.models.Sequential([keras.layers.Conv2D(32,(5,5),padding='same',act
                                  keras.layers.Conv2D(32,(3,3),padding='same',activation=tf.nn.relu),
                                  keras.layers.Dropout(0.25),
                                  keras.layers.MaxPooling2D(2,2),
-                                 keras.layers.Conv2D(64,(3,3),padding='same',activation=tf.nn.relu),
+                                 keras.layers.Conv2D(64,(5,5),padding='same',activation=tf.nn.relu),
                                  keras.layers.Conv2D(64,(3,3),padding='same',activation=tf.nn.relu),
                                  keras.layers.Dropout(0.25),
                                  keras.layers.MaxPooling2D(2,2),
