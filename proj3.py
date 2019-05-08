@@ -2,8 +2,7 @@
 #
 # This program trains a convolutional
 # neural network to recognize images
-# from the cfar10 dataset. It then
-# tests its training on said dataset.
+# from the cfar10 dataset.
 #
 # Program by: Eric Busch
 # edb160230@utdallas.edu
@@ -25,15 +24,18 @@ cifar10 = keras.datasets.cifar10
 class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
 
 # Create and compile the training model
-model = keras.models.Sequential([keras.layers.Conv2D(8,(5,5),padding='same',activation=tf.nn.relu,input_shape=(32,32,3)),
-                          keras.layers.Conv2D(8,(3,3),padding='same',activation=tf.nn.relu,input_shape=(32,32,3)),
-                          keras.layers.MaxPooling2D(2,2),
-                          keras.layers.Conv2D(16,(5,5),padding='same',activation=tf.nn.relu,input_shape=(32,32,3)),
-                          keras.layers.MaxPooling2D(2,2),
-                          keras.layers.Flatten(),
-                          keras.layers.Dense(512, activation=tf.nn.relu),
-                          keras.layers.Dense(256, activation=tf.nn.relu),
-                          keras.layers.Dense(10, activation=tf.nn.softmax)])
+model = keras.models.Sequential([keras.layers.Conv2D(32,(5,5),padding='same',activation=tf.nn.relu,input_shape=(32,32,3)),
+                                 keras.layers.Conv2D(32,(3,3),padding='same',activation=tf.nn.relu),
+                                 keras.layers.Dropout(0.25),
+                                 keras.layers.MaxPooling2D(2,2),
+                                 keras.layers.Conv2D(64,(3,3),padding='same',activation=tf.nn.relu),
+                                 keras.layers.Conv2D(64,(3,3),padding='same',activation=tf.nn.relu),
+                                 keras.layers.Dropout(0.25),
+                                 keras.layers.MaxPooling2D(2,2),
+                                 keras.layers.Flatten(),
+                                 keras.layers.Dense(512, activation=tf.nn.relu),
+                                 keras.layers.Dropout(0.5),
+                                 keras.layers.Dense(10, activation=tf.nn.softmax)])
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
 # train the model on the training dataset
