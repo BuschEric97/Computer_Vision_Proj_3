@@ -12,6 +12,9 @@ from matplotlib import pyplot as plt
 import tensorflow as tf
 from tensorflow import keras
 
+# set the logging verbosity to ERROR in order to get rid of warnings about deprecated versions
+tf.logging.set_verbosity(tf.logging.ERROR)
+
 # set the random seeds to make sure your results are reproducible
 from numpy.random import seed
 seed(1)
