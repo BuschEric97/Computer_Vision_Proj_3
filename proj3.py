@@ -42,7 +42,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=
 print('Preprocess Training Data:')
 X_train = X_train /255.0 # do preprocessing to the training data
 print('Training:')
-model.fit(X_train, y_train, batch_size=32, epochs=5)
+model.fit(X_train, y_train, batch_size=48, epochs=5)
 
 # test the trained model on the testing dataset
 print('Preprocess Testing Data:')
